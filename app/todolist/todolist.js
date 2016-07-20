@@ -1,16 +1,16 @@
 'use strict';
 
 angular
-  .module('myApp.view2', ['ngRoute'])
+  .module('myApp.todolist', ['ngRoute'])
 
   .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view2', {
-      templateUrl: 'view2/view2.html',
-      controller: 'View2Ctrl'
+    $routeProvider.when('/todolist', {
+      templateUrl: 'todolist/todolist.html',
+      controller: 'TodolistCtrl'
     });
   }])
 
-  .controller('View2Ctrl', function($scope,$window) {
+  .controller('TodolistCtrl', function($scope,$window) {
       var init = function(){
         if ($window.localStorage.getItem("todoList")===null)
           $scope.todoList = [];

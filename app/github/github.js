@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.github', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/github', {
+    templateUrl: 'github/github.html',
+    controller: 'GithubCtrl'
   });
 }])
 
@@ -39,7 +39,7 @@ angular.module('myApp.view1', ['ngRoute'])
   }
 }])
 
-.controller('View1Ctrl',function($scope, $window, AuthToken, ApiCall){
+.controller('GithubCtrl',function($scope, $window, AuthToken, ApiCall){
   var init = function(){
     if ($window.sessionStorage.getItem("token")===null)
       $scope.showForm = true;
