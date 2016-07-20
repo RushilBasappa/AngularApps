@@ -1,5 +1,24 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<div class="col-md-6 col-md-offset-3 card">
+  <h3>Todo List</h3>
+  <div class="form-inline form-group">
+    <input type="text" class="form-control" placeholder="Search for a task" ng-model="search"/>
+    <br>
+    <br>
+    <input type="text" ng-model="task" class="form-control" ng-keyup="todoAdd()" placeholder="Add a Task" />
+    <!-- <button class="btn btn-sm btn-primary">Add task</button> -->
+  </div>
+  <ul ng-if="todoList.length > 0" class="list-unstyled list-group list-group-flush">
+    <li ng-repeat="todo in todoList | filter:search track by $index" class="list-group-item">
+      <div class="view" ng-dblclick="toggleEditMode()">
+        <input type="checkbox" ng-click="updateCheckBox()" ng-model="todo.check"></input>
+        <span class="check-{{todo.check}}">{{todo.task}}</span>
+      </div>
+      <input type="text" class="edit" ng-model="todo.task" ng-keyup="editTodo()">
+    </li>
+    <br>
+    <button ng-if="todoList.length > 0" ng-click="clearMarked()" class="btn btn-primary">Clear Checked</button>
+  </ul>
+  <h4 ng-if="todoList.length == 0"> --No Tasks-- </h4>
+</div>

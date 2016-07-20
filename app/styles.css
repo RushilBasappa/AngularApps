@@ -1,0 +1,18 @@
+.check-true{
+  text-decoration: line-through;
+}
+.edit {
+    display: none;
+    border-width:0px;
+    border:none;
+}
+.edit:focus {
+  outline: none ;
+}
+.editing .view {
+  display: none;
+}
+.editing .edit {
+  display: block;
+  margin: 0;
+}
