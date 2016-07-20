@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+<div class="col-md-4 col-md-offset-4" ng-init="checked=true;">
+  <h2>Tic Tac Toe</h2>
+  <br>
+  <h4>Turn : {{player}}</h4>
+  <table border="3">
+    <tr ng-repeat="row in [0,1,2]">
+      <td ng-repeat="column in [0,1,2]" ng-click="change(row,column)" ng-model="cell" class="cell">{{cellText(row,column)}}</td>
+    </tr>
+  </table>
+  <h4 ng-if="winner">Winner : {{winner}}</h4>
+  <button ng-if="winner" ng-click="clearData()">New game</button>
+</div>
